@@ -12,7 +12,8 @@ function App() {
       <h1 className="bg-green-600 text-black p-2 rounded-xl mb-4 ">
         Tailwind Test
       </h1>
-      <Card/>
+      <Card username="Shubham" btnText="click karo" />
+      <Card username="Akhouri" btnText="click kar bc" />
     </>
   );
 }
