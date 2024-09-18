@@ -1,3 +1,24 @@
 {
-    "terminal.explorerKind": "external"
+    "workbench.colorTheme": "Dark Chai",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "bongocat",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.codeActions.triggerOnFocusChange": true,
+    "files.autoSave": "afterDelay",
+    "workbench.settings.applyToAllProfiles": [
+        "files.autoSave"
+    ],
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 18,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontSize": 18,
+    "window.zoomLevel": 0.6,
+    "editor.wordWrap": "on",
+    "editor.smoothScrolling": true,
+    "vscode_custom_css.imports": [
+        "file:///c:/Users/sahil.000/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
+    ],
+    
 }
