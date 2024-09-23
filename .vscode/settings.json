@@ -11,10 +11,10 @@
         "files.autoSave"
     ],
     "editor.fontFamily": "JetBrains Mono",
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
     "editor.fontLigatures": true,
     "terminal.integrated.fontSize": 18,
-    "window.zoomLevel": 0.6,
+    "window.zoomLevel": 0.7,
     "editor.wordWrap": "on",
     "editor.smoothScrolling": true,
     "vscode_custom_css.imports": [
