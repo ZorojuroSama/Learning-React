@@ -6,8 +6,10 @@ function App() {
   const [charsAllowed, setCharsAllowed] = useState(false);
   const [password, setPassword] = useState("");
   //useRef hook
-  const passwordRef = useRef(null)
-
+  const passwordRef = useRef(null);
+  //a function passwordGenerator is defined to generate password & we used useCallback hook for the optimization purpose,not necessary.
+  
+  //useCallback hook basically cache a function definition between re-renders. (seedha seedha ye ke is hook se function ka data cache mein save ho jata hai aur re-renders ke time cache se data utha ke webpage pe show krta hai for optimization purposes only.)
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -20,21 +22,16 @@ function App() {
       pass += str.charAt(char);
     }
     setPassword(pass);
-  
   }, [length, numsAllowed, charsAllowed]);
 
-  const copyToClipboard = useCallback(
-    () => {
-      passwordRef.current?.select()
-      window.navigator.clipboard.writeText(password)
-    },
-    [password],
-  )
-  
+  const copyToClipboard = useCallback(() => {
+    passwordRef.current?.select();
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
 
-  useEffect(()=>{
-    passwordGenerator()
-  }, [length, numsAllowed, charsAllowed, passwordGenerator])
+  useEffect(() => {
+    passwordGenerator();
+  }, [length, numsAllowed, charsAllowed, passwordGenerator]);
 
   return (
     <>
@@ -49,8 +46,9 @@ function App() {
             readOnly
             ref={passwordRef}
           />
-          <button className="outline-none bg-blue-500 text-white px-3 py-0.5 shrink-0 hover:bg-blue-300"
-          onClick={copyToClipboard}>
+          <button
+            className="outline-none bg-blue-500 text-white px-3 py-0.5 shrink-0 hover:bg-blue-300"
+            onClick={copyToClipboard}>
             copy
           </button>
         </div>
