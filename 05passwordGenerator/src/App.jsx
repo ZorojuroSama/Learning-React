@@ -5,11 +5,15 @@ function App() {
   const [numsAllowed, setNumsAllowed] = useState(false);
   const [charsAllowed, setCharsAllowed] = useState(false);
   const [password, setPassword] = useState("");
-  //useRef hook
-  const passwordRef = useRef(null);
-  //a function passwordGenerator is defined to generate password & we used useCallback hook for the optimization purpose,not necessary.
   
-  //useCallback hook basically cache a function definition between re-renders. (seedha seedha ye ke is hook se function ka data cache mein save ho jata hai aur re-renders ke time cache se data utha ke webpage pe show krta hai for optimization purposes only.)
+  //useRef hook to get the reference of the generated password so we can use it to copy it to our clipboard
+  const passwordRef = useRef(null);
+  
+  //a function "passwordGenerator" is defined to generate password & we used "useCallback" hook for the optimization purpose,not necessary.
+
+  //"useCallback" hook basically cache a function definition between re-renders. (seedha seedha ye ke is hook se function ka data cache mein save ho jata hai aur re-renders ke time cache se data utha ke webpage pe show krta hai for optimization purposes only.)
+  
+  //password generator function
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -24,9 +28,10 @@ function App() {
     setPassword(pass);
   }, [length, numsAllowed, charsAllowed]);
 
+  //function for copying the password to clipboard
   const copyToClipboard = useCallback(() => {
     passwordRef.current?.select();
-    window.navigator.clipboard.writeText(password);
+    window.navigator.clipboard.writeText(password); //window object helps to copy(write data to clipboard)
   }, [password]);
 
   useEffect(() => {
