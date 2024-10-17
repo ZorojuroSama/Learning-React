@@ -1,7 +1,7 @@
 {
     "workbench.colorTheme": "Dark Chai",
     "workbench.iconTheme": "helium-icon-theme",
-    "workbench.productIconTheme": "bongocat",
+    "workbench.productIconTheme": "Default",
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
